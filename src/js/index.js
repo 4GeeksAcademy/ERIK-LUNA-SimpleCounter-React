@@ -1,27 +1,42 @@
 //import react into the bundle
 import ReactDOM from "react-dom";
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+
+
 
 // include your styles into the webpack bundle
-import "../styles/index.css";
+import "../js/component/indexCounter.css";
 
 //import your own components
 
 function SecondsCounter() {
-    
+    return(<>
+    <div classMate="MainCounter" /><div>
+      <div className="Four">0</div>
+      <div className="Three">0</div>
+      <div className="Two">0</div>
+      <div className="One">0</div>
+
+    </div>
+    </>)
   }
+
+
 
   let seconds = 0;
 
   const Contador = setInterval(() => {
   seconds++;
 
+
   if (seconds === 20) {
     clearInterval(Contador); 
+  
   }
 
 
-  console.log(`Segundos transcurridos: ${seconds}`);
+
+  console.log(Contador);
 
   }, 1000);
     
