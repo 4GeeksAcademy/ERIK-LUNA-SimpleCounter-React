@@ -9,41 +9,32 @@ import "../js/component/indexCounter.css";
 
 //import your own components
 
-function SecondsCounter() {
-    return(<>
-    <div classMate="MainCounter" /><div>
-      <div className="Four">0</div>
-      <div className="Three">0</div>
-      <div className="Two">0</div>
-      <div className="One">0</div>
+function SecondsCounter(props) {
+  return (
+    <>
+      <div className="MainCounter">
+        <div className="One">0</div>
+        <div className="Two">0</div>
+        <div className="Three">0</div>
+        <div className="Four">{props.seconds}</div>
+      </div>
+    </>
+  );
+}
 
-    </div>
-    </>)
-  }
+let seconds = 0;
 
-
-
-  let seconds = 0;
-
-  const Contador = setInterval(() => {
+const Contador = setInterval(() => {
   seconds++;
 
-
-  if (seconds === 20) {
-    clearInterval(Contador); 
-  
+  if (seconds === 100) {
+    clearInterval(Contador);
   }
 
-
+  ReactDOM.render(<SecondsCounter seconds={seconds} />, document.querySelector("#app"));
 
   console.log(Contador);
-
-  }, 1000);
-    
-
+}, 1000);
 
 //render your react applicatio
-ReactDOM.render(<SecondsCounter 
-    seconds="Contador"
-    
-    />, document.querySelector("#app"));
+
